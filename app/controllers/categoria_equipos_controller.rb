@@ -1,5 +1,5 @@
 class CategoriaEquiposController < ApplicationController
-  before_action :set_categoria_equipo, only: [:show, :edit, :update, :destroy]
+  before_action :set_categoria_equipo, only: [:show, :edit, :update, :destroy, :list]
 
   # GET /categoria_equipos
   # GET /categoria_equipos.json
@@ -71,4 +71,13 @@ class CategoriaEquiposController < ApplicationController
     def categoria_equipo_params
       params.require(:categoria_equipo).permit(:nombre, :descripcion)
     end
+
+#PROBANDO TEMA CONSULTA ESTACIONES
+
+	def list()
+		@concentradors = concentrador.joins('INNER JOIN categoria_equipos ON concentrador.categoria_equipo.id = categoria_equipos.id')
+	end
+	
+
+
 end

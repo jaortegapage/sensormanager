@@ -7,6 +7,11 @@ Sensormanager::Application.routes.draw do
 
   resources :categoria_equipos
 
+
+get 'categoria_equipos/:id/list' => 'categoria_equipos#list', as: :list
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -22,7 +22,7 @@
   <tbody>
     <% @concentradors.each do |concentrador| %>
       <tr>
-        <td><%= concentrador.categoria_equipos %></td>
+        <td><%= concentrador.categoria_equipos_id %></td>
         <td><%= concentrador.nombre %></td>
         <td><%= concentrador.descripcion %></td>
         <td><%= concentrador.estado %></td>
@@ -35,7 +35,8 @@
         <td><%= link_to 'Show', concentrador %></td>
         <td><%= link_to 'Edit', edit_concentrador_path(concentrador) %></td>
         <td><%= link_to 'Destroy', concentrador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Sensor' %></td> 
+	</tr>
     <% end %>
   </tbody>
 </table>

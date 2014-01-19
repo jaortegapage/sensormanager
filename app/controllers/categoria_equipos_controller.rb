@@ -72,12 +72,18 @@ class CategoriaEquiposController < ApplicationController
       params.require(:categoria_equipo).permit(:nombre, :descripcion)
     end
 
-#PROBANDO TEMA CONSULTA ESTACIONES
+#Consulta de Estaciones
 
 	def list()
-		@concentradors = concentrador.joins('INNER JOIN categoria_equipos ON concentrador.categoria_equipo.id = categoria_equipos.id')
+		@concentradors = Concentrador.joins('INNER JOIN categoria_equipos ON concentrador.categoria_equipo.id = categoria_equipos.id')
 	end
 	
+#Definiendo email de bienvenida
 
+	def mail_bienvenida(user)
+		@user = user
+		@url = 'http://ServTel.uah.es/login'
+		mail(to: @user.email, subject: 'Bienvenido a ServTel')
+	end
 
 end

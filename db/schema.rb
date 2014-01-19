@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110173758) do
+ActiveRecord::Schema.define(version: 20140118183341) do
 
   create_table "categoria_equipos", force: true do |t|
     t.string "nombre",      limit: 50
@@ -58,5 +58,13 @@ ActiveRecord::Schema.define(version: 20140110173758) do
   end
 
   add_index "sensors", ["concentrador_id"], name: "index_sensors_on_concentrador_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

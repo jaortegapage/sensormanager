@@ -1,4 +1,6 @@
 Sensormanager::Application.routes.draw do
+  resources :users
+
   resources :medidas
 
   resources :sensors
@@ -8,8 +10,9 @@ Sensormanager::Application.routes.draw do
   resources :categoria_equipos
 
 
-get 'categoria_equipos/:id/list' => 'categoria_equipos#list', as: :list
-
+get 'categoria_equipos/:id/list' => 'categoria_equipos#list', as: :listaestaciones
+get 'concentradors/:id/list' => 'concentradors#list', as: :listasensores
+get 'sensors/:id/list' => 'sensors#list', as: :listamedidas
 
 
   # The priority is based upon order of creation: first created -> highest priority.

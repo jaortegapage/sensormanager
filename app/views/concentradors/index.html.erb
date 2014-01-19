@@ -35,7 +35,7 @@
         <td><%= link_to 'Show', concentrador %></td>
         <td><%= link_to 'Edit', edit_concentrador_path(concentrador) %></td>
         <td><%= link_to 'Destroy', concentrador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Sensor' %></td> 
+        <td><%= link_to 'Sensor', {:action=>'list', :id=>concentrador.id} %></td> 
 	</tr>
     <% end %>
   </tbody>

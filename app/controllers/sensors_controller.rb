@@ -1,5 +1,5 @@
 class SensorsController < ApplicationController
-  before_action :set_sensor, only: [:show, :edit, :update, :destroy]
+  before_action :set_sensor, only: [:show, :edit, :update, :destroy, :list]
 
   # GET /sensors
   # GET /sensors.json
@@ -71,4 +71,10 @@ class SensorsController < ApplicationController
     def sensor_params
       params.require(:sensor).permit(:concentrador_id, :nombre, :descripcion, :estado, :parametro, :valor, :uds)
     end
+
+def list
+@medidas = Medida.joins('INNER JOIN sensors ON medida.sensor.id = sensors.id')
+end
+
+
 end

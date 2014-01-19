@@ -1,5 +1,5 @@
 class ConcentradorsController < ApplicationController
-  before_action :set_concentrador, only: [:show, :edit, :update, :destroy]
+  before_action :set_concentrador, only: [:show, :edit, :update, :destroy, :list]
 
   # GET /concentradors
   # GET /concentradors.json
@@ -71,4 +71,9 @@ class ConcentradorsController < ApplicationController
     def concentrador_params
       params.require(:concentrador).permit(:categoria_equipos_id, :nombre, :descripcion, :estado, :gis_latitud, :gis_longitud, :mac_address, :numero_serie, :ip_address, :ip_port)
     end
+
+def list
+@sensors = Sensor.joins('INNER JOIN concentradors ON sensor.concentrador.id = concentradors.id')
+end
+
 end
